@@ -13,15 +13,15 @@ install:
 
 .PHONY: clean
 clean:
-	rm -Rf ${OSX_BUILD_DIR} ${LINUX_BUILD_DIR}
+	@rm -Rf ${OSX_BUILD_DIR} ${LINUX_BUILD_DIR}
 
 .PHONY: build
 build: clean build_osx build_linux
 
 .PHONY: build_osx
 build_osx:
-	docker run -v ${OSX_BUILD_DIR}/:/build ${BUILD_IMAGE} -p osx --name ${APP_NAME} -f --min-width ${APP_MIN_WIDTH} --min-height ${APP_MIN_HEIGHT} --disable-context-menu --disable-dev-tools --single-instance ${APP_URL} build/
+	@docker run -v ${OSX_BUILD_DIR}/:/build ${BUILD_IMAGE} -p osx --name ${APP_NAME} -f --min-width ${APP_MIN_WIDTH} --min-height ${APP_MIN_HEIGHT} --disable-context-menu --disable-dev-tools --single-instance ${APP_URL} build/
 
 .PHONY: build_linux
 build_linux:
-	docker run -v ${LINUX_BUILD_DIR}/:/build ${BUILD_IMAGE} -p linux --name ${APP_NAME} -f --min-width ${APP_MIN_WIDTH} --min-height ${APP_MIN_HEIGHT} --disable-context-menu --disable-dev-tools --single-instance ${APP_URL} build/
+	@docker run -v ${LINUX_BUILD_DIR}/:/build ${BUILD_IMAGE} -p linux --name ${APP_NAME} -f --min-width ${APP_MIN_WIDTH} --min-height ${APP_MIN_HEIGHT} --disable-context-menu --disable-dev-tools --single-instance ${APP_URL} build/
