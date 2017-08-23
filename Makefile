@@ -7,6 +7,9 @@ export APP_URL=https://feedcast.io
 export APP_MIN_WIDTH=800
 export APP_MIN_HEIGHT=600
 
+.PHONY: default
+default: install build
+
 .PHONY: install
 install:
 	@echo "Downloading dependencies"
