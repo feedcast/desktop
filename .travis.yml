@@ -1,0 +1,4 @@
+jobs:
+  include:
+    - stage: Build
+      script: make
