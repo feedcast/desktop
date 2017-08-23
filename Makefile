@@ -11,8 +11,12 @@ export APP_MIN_HEIGHT=600
 install:
 	docker pull ${BUILD_IMAGE}
 
+.PHONY: clean
+clean:
+	rm -Rf ${OSX_BUILD_DIR} ${LINUX_BUILD_DIR}
+
 .PHONY: build
-build: build_osx build_linux
+build: clean build_osx build_linux
 
 .PHONY: build_osx
 build_osx:
